@@ -15,9 +15,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "API_KEY", "\"822f63a6cb98ddcd0aed976231869515\""
+            buildConfigField "String", "API_TOKEN", "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MjJmNjNhNmNiOThkZGNkMGFlZDk3NjIzMTg2OTUxNSIsInN1YiI6IjU3NWZhMWVlYzNhMzY4NmU4NDAwMTRjYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.guRys0tSPEJuZn1RoHEysS1RZkyRFCrF9LwtoKU8128\""
         }
     }
 }
@@ -60,10 +66,15 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
+
+    compile 'com.squareup.retrofit2:converter-moshi:2.4.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.5.0'
+    compile "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+
     //Test
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$espresso_version"
+//    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$espresso_version"
 }

@@ -4,7 +4,8 @@ buildscript {
     ext.kotlin_version = '1.2.0'
     repositories {
         google()
-        jcenter()
+        maven { url "http://jcenter.bintray.com"}
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -18,7 +19,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        maven { url "http://jcenter.bintray.com"}
+
     }
 }
 
@@ -41,6 +43,6 @@ ext {
     rxkbinding2_version = '2.0.0'
     sqlbrite2_version = '2.0.0'
     junit_version = '4.12'
-    espresso_version = '3.0.0'
+    espresso_version = '3.0.1'
     constraint_layout_version = '1.0.2'
 }
