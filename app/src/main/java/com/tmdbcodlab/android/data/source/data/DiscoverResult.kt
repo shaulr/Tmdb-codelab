@@ -1,15 +1,18 @@
 package com.tmdbcodlab.android.data.source.data
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Ignore
+import android.arch.persistence.room.PrimaryKey
 import com.squareup.moshi.Json
 
 /**
  * Created by shaulr on 08/04/18.
  */
-
+@Entity(tableName = "discover")
 data class DiscoverResult (
-
     @Json(name = "vote_count")
     var voteCount: Int? = null,
+    @PrimaryKey
     @Json(name = "id")
     var id: Int? = null,
     @Json(name = "video")
@@ -36,5 +39,7 @@ data class DiscoverResult (
     var overview: String? = null,
     @Json(name = "release_date")
     var releaseDate: String? = null
+) {
+    @Ignore constructor() : this(0)
 
-)
+}
